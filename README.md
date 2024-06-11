@@ -1,2 +1,2 @@
-# splash_brew
+# Splash Brew
 Kombucha fermentation buddy
