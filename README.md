@@ -2,6 +2,40 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+
+### Running with Docker
+
+First we compile the Dockerfile to create an image, then create and run a container using the image. 
+
+#### For development
+
+```bash
+docker build -t splash-brew -f Dockerfile.dev
+
+```
+
+We can create and run the application in the container with the following command:
+```bash
+docker run --rm --name splash-brew -p 3000:3000 -v ./:/usr/src/app -it splash-brew bash
+```
+
+We also use -v to mount the localfolder to /usr/src/app so that we can share data between the local folder and the container so that any changes made locally is represented inside the container. 
+
+#### For production
+
+```bash
+docker build -t splash-brew
+
+```
+
+And then create and run the container. 
+
+```bash
+docker run --rm --name splash-brew -p 3000:3000 splash-brew 
+```
+
+### Running without Docker
+
 First, run the development server:
 
 ```bash
